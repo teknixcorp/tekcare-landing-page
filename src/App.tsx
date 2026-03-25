@@ -106,13 +106,6 @@ const Navbar = () => {
   );
 };
 
-const SectionTag = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider mb-6 bg-primary-light/50 text-primary border border-primary/10">
-    <Zap className="w-3 h-3" />
-    {children}
-  </span>
-);
-
 const FadeIn: React.FC<{ children: React.ReactNode, delay?: number, className?: string }> = ({ children, delay = 0, className = "" }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -362,10 +355,9 @@ export default function App() {
       </section>
 
       {/* SECTION 2: PAIN POINTS */}
-      <section className="section-padding bg-white relative z-20 rounded-t-[3.5rem] -mt-12 shadow-[0_-20px_60px_rgba(0,0,0,0.03)]">
+      <section className="section-padding bg-gray-50/50 relative z-20 rounded-t-[3.5rem] -mt-12 shadow-[0_-20px_60px_rgba(0,0,0,0.03)]">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
-            <SectionTag>VẤN ĐỀ</SectionTag>
             <h2 className="text-4xl md:text-6xl font-serif text-gray-900 mb-6 tracking-tight leading-tight">Bạn đang gặp <span className="text-red-500 italic">khó khăn?</span></h2>
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">Những điểm nghẽn khiến phòng khám của bạn không thể mở rộng và tối ưu lợi nhuận.</p>
           </div>
@@ -380,7 +372,7 @@ export default function App() {
               { title: 'Phụ thuộc IT', desc: 'Sửa nội dung App/Web đều phải chờ lập trình viên. Chậm và tốn kém.' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.1} className="h-full">
-                <div className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 hover:border-red-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(239,68,68,0.1)] hover:-translate-y-2 transition-all duration-500 group h-full relative overflow-hidden">
+                <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:border-red-100 hover:shadow-[0_30px_60px_-15px_rgba(239,68,68,0.1)] hover:-translate-y-2 transition-all duration-500 group h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
                     <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-500 group-hover:text-white transition-all duration-500">
@@ -403,7 +395,6 @@ export default function App() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="max-w-2xl">
-              <SectionTag>HỆ SINH THÁI</SectionTag>
               <h2 className="text-4xl md:text-6xl font-serif text-gray-900 mb-6 tracking-tight leading-tight">Số hóa toàn diện <br/>quy trình y tế</h2>
               <p className="text-lg md:text-xl text-gray-500 font-medium">Một nền tảng duy nhất giải quyết đồng thời: Trải nghiệm khách hàng, Kiểm soát chủ cơ sở, và Vận hành pháp lý.</p>
             </div>
@@ -427,7 +418,7 @@ export default function App() {
               { icon: Smartphone, title: 'App khách hàng', desc: 'Đặt lịch online, xem hồ sơ cá nhân, nhận nhắc hẹn tái khám tự động.', span: 'lg:col-span-2' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.1} className={`h-full ${item.span || ''}`}>
-                <div className="bg-white p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.06)] transition-all duration-500 h-full group relative overflow-hidden">
+                <div className="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.06)] transition-all duration-500 h-full group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
                     <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
@@ -450,10 +441,6 @@ export default function App() {
 
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium uppercase tracking-wider mb-6 bg-white/10 text-white border border-white/20">
-              <Activity className="w-3 h-3" />
-              QUY TRÌNH
-            </span>
             <h2 className="text-4xl md:text-5xl font-serif font-medium mb-6 tracking-tight">Luồng vận hành tự động</h2>
             <p className="text-gray-400 max-w-2xl mx-auto font-medium text-lg">Từ khi khách đặt lịch đến khi hoàn tất dịch vụ. Mọi bước đều được số hóa và giám sát real-time.</p>
           </div>
@@ -484,22 +471,13 @@ export default function App() {
             ))}
           </div>
 
-          <div className="bg-gradient-primary p-1 rounded-2xl">
-            <div className="bg-gray-900 p-6 rounded-xl flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-              <Activity className="w-8 h-8 text-primary animate-pulse" />
-              <p className="font-medium text-lg">
-                Giám sát Real-time: Cập nhật tức thì khách ở phòng nào, bác sĩ nào đang phục vụ, phòng nào đang trống.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* SECTION 5: ROI & COMMITMENT */}
-      <section id="stats" className="section-padding bg-white">
+      <section id="stats" className="section-padding bg-gray-50/30">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
-            <SectionTag>HIỆU QUẢ</SectionTag>
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-gray-900 mb-6 tracking-tight">Phương trình lợi nhuận</h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto font-medium">Những con số thực tế khi triển khai TekCare cho phòng khám và thẩm mỹ viện.</p>
           </div>
@@ -512,7 +490,7 @@ export default function App() {
               { icon: Heart, val: 35, prefix: '⬆ ', suffix: '%', label: 'Tăng khách hàng quay lại', desc: 'Nhắc lịch, chăm sóc, tích điểm tự động', color: 'text-purple-500' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.1} className="h-full">
-                <div className="bg-cream p-8 rounded-[2rem] text-center h-full border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                <div className="bg-white p-8 rounded-[2rem] text-center h-full border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300">
                   <div className={`text-5xl font-extrabold mb-4 ${item.color} tracking-tighter`}>
                     {item.prefix}
                     <Counter value={item.val} suffix={item.suffix} />
@@ -545,7 +523,7 @@ export default function App() {
       </section>
 
       {/* SECTION 6: PRICING */}
-      <section id="pricing" className="section-padding bg-cream relative overflow-hidden">
+      <section id="pricing" className="section-padding bg-cream/50 relative overflow-hidden">
         {/* Advanced Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(0,76,158,0.05)_0%,transparent_70%)] pointer-events-none" />
         <motion.div 
@@ -560,7 +538,6 @@ export default function App() {
         
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-16 md:mb-24">
-            <SectionTag>ĐẦU TƯ</SectionTag>
             <h2 className="text-4xl md:text-7xl font-serif text-gray-900 mb-6 tracking-tight leading-tight">
               Giải pháp <span className="text-secondary italic">tối ưu</span> <br className="hidden md:block" /> cho mọi quy mô
             </h2>
@@ -976,7 +953,6 @@ export default function App() {
         <div className="max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <FadeIn>
-              <SectionTag>DÙNG THỬ</SectionTag>
               <h2 className="text-4xl md:text-5xl font-serif font-medium text-gray-900 mb-6 tracking-tight">Nhận tài khoản <br/>Demo miễn phí</h2>
               <p className="text-lg text-gray-500 mb-12 font-medium">Điền thông tin bên dưới để nhận ngay tài khoản Demo miễn phí, trải nghiệm toàn bộ hệ sinh thái TekCare trên thiết bị của bạn.</p>
               
@@ -1070,12 +1046,12 @@ export default function App() {
                           className={`w-full px-4 py-3 md:px-5 md:py-4 rounded-xl md:rounded-2xl border bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none ${errors.clinicType ? 'border-red-500' : 'border-gray-200'}`}
                         >
                           <option value="">— Chọn loại hình —</option>
-                          <option value="tmv">Thẩm mỹ viện / Clinic thẩm mỹ</option>
-                          <option value="nhakhoa">Phòng khám nha khoa</option>
-                          <option value="spa">Spa trị liệu</option>
-                          <option value="dakhoa">Phòng khám đa khoa</option>
-                          <option value="chuoi">Chuỗi phòng khám / Bệnh viện</option>
-                          <option value="khac">Khác</option>
+                          <option value="Thẩm mỹ viện / Clinic thẩm mỹ">Thẩm mỹ viện / Clinic thẩm mỹ</option>
+                          <option value="Phòng khám nha khoa">Phòng khám nha khoa</option>
+                          <option value="Spa trị liệu">Spa trị liệu</option>
+                          <option value="Phòng khám đa khoa">Phòng khám đa khoa</option>
+                          <option value="Chuỗi phòng khám / Bệnh viện">Chuỗi phòng khám / Bệnh viện</option>
+                          <option value="Khác">Khác</option>
                         </select>
                       </div>
 
