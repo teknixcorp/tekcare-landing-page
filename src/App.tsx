@@ -514,14 +514,6 @@ export default function App() {
 
       {/* SECTION 5: ROI & COMMITMENT */}
       <section id="stats" className="section-padding bg-gray-50/30 relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1920" 
-            alt="Data Analysis" 
-            className="w-full h-full object-cover opacity-[0.03]"
-            referrerPolicy="no-referrer"
-          />
-        </div>
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-gray-900 mb-6 tracking-tight">Phương trình lợi nhuận</h2>
